@@ -1,0 +1,99 @@
+/* MAIN LAYOUT DIVS
+--------------------------------------------------------- */
+#ja-wrapper {}
+
+.wrap { clear: both; min-width: 1000px; }
+
+.main { width: 1000px; margin: 0 auto; }
+
+.main .inner { margin: 0 5px; }
+/* HEADER
+--------------------------------------------------------- */
+#ja-header {}
+
+/* CONTAINER
+--------------------------------------------------------- */
+#ja-container { padding: 10px 0; }
+#ja-mainbody { float: left; width: 75%; }
+
+/*main content---*/
+#ja-main { clear: both; display: block; float: right; width: 66.6%; }
+#ja-current-content { min-height: 400px; }
+/*columns---*/
+#ja-col1 { float: left; width: 33.3%; }
+#ja-col2 { float: right; width: 25%; }
+
+/* FOOTER
+--------------------------------------------------------- */
+#ja-footerwrap {}
+#ja-footer { padding: 10px 0; }
+
+/* EXTENSIBLE LAYOUT
+--------------------------------------------------------- */
+/*1 Column---*/
+.ja-lo-1col #ja-current-content { margin: 0; }
+.ja-lo-1col #ja-mainbody,.ja-lo-1col #ja-main { float: none; width: 100%; }
+
+/*2 Columns Right---*/
+.ja-lo-2colsr #ja-main { float: none; width: 100%; }
+.ja-lo-2colsr #ja-current-content { margin-left: 0; }
+
+/*2 Columns Left---*/
+.ja-lo-2colsl #ja-mainbody { float: none; width: 100%; }
+.ja-lo-2colsl #ja-main { width: 75%; }
+.ja-lo-2colsl #ja-current-content { margin-right: 0; }
+.ja-lo-2colsl #ja-col1 { width: 25%; }
+.ja-lo-2colsl .col-left-inner { padding: 0 10px 0 0; }
+
+/* IN PAGE LAYOUTS
+--------------------------------------------------------- */
+.page {}
+.page-print { padding: 25px 30px; text-align: left; }
+.page-empty { padding: 20px; text-align: left; }
+.page-popup { padding: 25px 30px; text-align: left; }
+.main-container { }
+.main {}
+
+/* Base Columns */
+.col-left { float: left; width: 195px; padding: 0; }
+.col-main { float: left; width: 685px; padding: 0; }
+.col-right { float: right; width: 195px; padding: 0; }
+
+/* 1 Column Layout */
+.col1-layout .col-main { float: none; width: auto; }
+
+/* 2 Columns Layout */
+.col2-left-layout .col-main { float: right; }
+.col2-right-layout .col-main {}
+
+/* 3 Columns Layout */
+.col3-layout .col-main { width: 475px; margin-left: 17px; }
+.col3-layout .col-wrapper { float: left; width: 687px; }
+.col3-layout .col-wrapper .col-main { float: right; }
+
+/* Content Columns */
+.col2-set .col-1 { float: left; width: 48.5%; }
+.col2-set .col-2 { float: right; width: 48.5%; }
+.col2-set .col-narrow { width: 32%; }
+.col2-set .col-wide { width: 65%; }
+
+.col3-set .col-1 { float: left; width: 32%; }
+.col3-set .col-2 { float: left; width: 32%; margin-left: 2%; }
+.col3-set .col-3 { float: right; width: 32%; }
+
+.col4-set .col-1 { float: left; width: 25%; }
+.col4-set .col-2 { float: left; width: 25%; }
+.col4-set .col-3 { float: left; width: 25%; }
+.col4-set .col-4 { float: left; width: 25%;}
+
+.col5-set .col-1 { float: left; width: 20%; }
+.col5-set .col-2 { float: left; width: 20%; }
+.col5-set .col-3 { float: left; width: 20%; }
+.col5-set .col-4 { float: left; width: 20%; }
+.col5-set .col-5 { float: left; width: 20%; }
+.col5-set .col-wide { width: 40%; }
+
+/*Table Columns---*/
+table .col-1, table .col-2, table .col-3, table .col-4 { float: none !important; margin: 0 !important; }
+.col3-set td.spacer { width: 3%; }
+.col4-set td.spacer { width: 4%; }

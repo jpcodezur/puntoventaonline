@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config>
+   <sections>
+        <wavethemes_jmbasetheme>
+            <label>JM Base theme</label>
+            <tab>wavethemes</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+	        	<jmbasethemegreen translate="label">
+				    <label>JM Basetheme: settings for Core profile</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>99999</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<logo>
+                            <label>Logo Background image</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo>
+						<bullet>
+                            <label>Background bullet menu image</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bullet>
+						<wishlist>
+                            <label>Background wishlist icon</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wishlist>
+						<compare>
+                            <label>Background compare icon</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </compare>
+						<email>
+                            <label>Background email icon</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+						<loadajax>
+                            <label>Ajax Load icon</label>
+							<comment>To apply logo background image must be transparent or empty</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>jmbasetheme/backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">images</upload_dir>
+                            <base_url type="media" scope_info="1">images</base_url>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadajax>
+						<!--
+						<masstop1color translate="label comment">
+                            <label>Category List Background Color: </label>
+                            <comment>To apply Category List Background color, Category List Image must be transparent or empty</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>jmbasetheme/adminhtml_system_config_form_colorpicker</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </masstop1color>
+                        -->
+					
+					</fields>
+            	</jmbasethemegreen>
+            </groups>
+        </wavethemes_jmbasetheme>
+    </sections>       
+</config>

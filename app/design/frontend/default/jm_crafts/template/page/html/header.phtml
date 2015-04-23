@@ -1,0 +1,96 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   design_default
+ * @package    Mage
+ * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+?>
+<div id="ja-header" class="wrap">
+	<div class="main clearfix">
+		<div class="inner clearfix">
+			<h1 id="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" style="background-image: url(<?php echo $this->getLogoSrc() ?>);"><span><?php echo $this->getLogoAlt() ?></span></a></h1>	
+			<!-- BEGIN: NAV -->
+			<div id="ja-mainnav" class="has-toggle">
+				<div class="btn-toggle menu-toggle" >
+					 <i class="icon-reorder">&nbsp;</i><strong><?php echo $this->__('Menu') ?></strong>
+				</div>				
+				<div class="inner-toggle clearfix" id="ja-mainnav-inner">
+					<?php echo $this->getChildHtml('topMenu') ?>
+				</div>
+			</div>
+			<!-- END: NAV -->
+			<!-- BEGIN: SITE SEARCH -->
+			<div id="ja-search" class="has-toggle">
+				<div class="btn-toggle search-toggle">
+					<span>&nbsp;</span><strong><?php echo $this->__('Search') ?></strong>
+				</div>
+				<div class="inner-toggle clearfix">
+					<?php echo $this->getChildHtml('topSearch') ?>
+				</div>
+			</div>
+			<!-- END: SITE SEARCH -->
+			<div id="ja-quicksetting" class="quick-setting has-toggle">
+				<div class="btn-toggle quicksetting-toggle">
+					<i class="icon-gear"></i><strong><?php echo $this->__('Quick Setting') ?></strong>
+				</div>
+				<div class="inner-toggle clearfix">
+					<div class="setting-action">
+						<?php echo $this->getChildHtml('store_language'); ?>
+						<?php echo $this->getChildHtml('custom_currency_selector') ?>
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('colors')->toHtml() ?>
+					</div>
+				</div>
+			</div>
+			<!-- BEGIN: QUICK ACCESS -->
+			<div id="ja-quickaccess" class="quick-access has-toggle">
+				<div class="btn-toggle quickaccess-toggle">
+					<i class="icon-user"></i><strong><?php echo $this->__('Quick Access') ?></strong>
+				</div>
+				<div class="inner-toggle clearfix">
+					<?php 
+					if($this->getChildHtml('customer_account_navigation')):
+						echo $this->getChildHtml('customer_account_navigation');
+					endif;
+					?>
+						
+					<div class="shop-access">
+						<?php echo $this->getChildHtml('topLinks');  ?>
+					</div>
+				</div>
+			</div>
+			<!-- END: QUICK ACCESS -->
+			<!-- BEGIN: MY CART-->
+			<div id="ja-mycart" class="has-toggle">
+				<div class="jmajaxloading">&nbsp;</div> 
+				<div class="btn-toggle mycart-toggle">
+					<i class="icon-shopping-cart"></i>
+				</div>
+				<div class="inner-toggle clearfix">
+					<span class="arrow"></span>
+					<?php echo $this->getChildHtml('mycart') ?>
+				</div>
+			</div>
+			<!-- END: MY CART -->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+ul.products-grid .item-more {
+  float: left;
+  height: auto;
+  width: 100%;
+}
+
+ul.products-grid .item-more .item-inner {
+ 
+}
+
+ul.products-grid .item-more .item-inner:active,
+ul.products-grid .item-more .item-inner:focus,
+ul.products-grid .item-more .item-inner:hover {
+	opacity: 0.8;
+}
+
+div.item-more h3{
+	background: none repeat scroll 0 0 #FC615D;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: block;
+	font-family: 'novecento_widedemibold';
+	font-size: 110%;
+	font-style: normal;
+	font-weight: normal;
+	height: auto;
+	line-height: 60px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 610px;
+	margin: 15px auto 40px;
+}
+div#infscr-loading{
+   display: block;
+   height: auto;
+   margin: 0 auto;
+   position: relative;
+   width: 610px;
+}
+div#infscr-loading img{
+   display: block;
+   margin: 0 auto;
+}
+div#infscr-loading .infscrloading {
+	width: 64px !important;
+	height: 64px !important;
+	display: block;
+	margin: 15px auto 0;
+	background: url('../images/ajax-loader.gif') top left no-repeat;
+}
+
+
+div#infscr-loading div{
+	background: none repeat scroll 0 0 #FC615D;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: block;
+	font-family: 'novecento_widedemibold';
+	font-size: 110%;
+	font-style: normal;
+	font-weight: normal;
+	height: auto;
+	line-height: 60px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 610px;
+	margin: 15px auto 40px;
+}

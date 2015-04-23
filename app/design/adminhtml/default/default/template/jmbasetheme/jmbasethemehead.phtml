@@ -1,0 +1,47 @@
+<?php
+$storeCode = Mage::app()->getRequest()->getParam("store");
+
+if($storeCode){
+	$storeId = Mage::app()->getStore($storeCode)->getId();
+}
+
+$profiles = Mage::helper("jmbasetheme")->getProfiles($storeCode);
+
+//Get assigned profiles
+$profileNames = array_keys($profiles);
+$assignedProfiles = array();
+$stores = Mage::app()->getStores();
+foreach ($stores as $store){
+	$assignProfile = Mage::getStoreConfig("wavethemes_jmbasetheme/jmbasethemegeneral/profile", $store->getCode());
+	if(in_array($assignProfile, $profileNames)){
+		$assignedProfiles[$store->getId()] = $assignProfile;
+	}
+}
+
+if (Mage::getStoreConfig("web/secure/use_in_adminhtml")) {
+	$baseUrl = Mage::getStoreConfig("web/secure/base_url");
+} else {
+	$baseUrl = Mage::getBaseUrl();
+}
+
+$defaultTheme = Mage::helper("jmbasetheme")->getDefaultTheme($storeCode, "backend");
+
+?>
+
+<script type="text/javascript">
+	<?php if($storeCode): ?>
+	var storeid = <?php echo $storeId; ?>, storecode = '<?php echo $storeCode ?>';
+	<?php endif; ?>
+
+	var defaulttheme = '<?php echo $defaultTheme; ?>', baseurl ='<?php echo $baseUrl; ?>';
+	var assignedProfiles = <?php echo json_encode($assignedProfiles);?>;
+	var profiles = <?php echo json_encode($profiles);?>;
+
+	//for message
+	var PROFILE_NAME_EXIST = '<?php echo $this->__('The profile name was existed.'); ?>';
+	var ENTER_PROFILE_NAME = '<?php echo $this->__('Please enter the profile name.'); ?>';
+	var SELECT_PROFILE = '<?php echo $this->__('Please select the profile name.'); ?>';
+	var PROFILE_USED_BY_OTHER_STORE = '<?php echo $this->__('Sorry, the profile was used by another store.'); ?>';
+	var DO_YOU_WANT_TO_CLONE_THIS_PROFILE = '<?php echo $this->__('Do you want to clone this profile?'); ?>';
+	var CONFIRM_DELETE_PROFILE = '<?php echo $this->__('Are you sure you want to delete this profile?'); ?>';
+</script>

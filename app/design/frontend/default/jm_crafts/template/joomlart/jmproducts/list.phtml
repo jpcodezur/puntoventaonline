@@ -1,0 +1,204 @@
+<?php echo $this->getToolbarHtml(); ?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    $baseconfig =  Mage::helper("jmbasetheme")->getactiveprofile();
+   
+    if ($baseconfig) : 
+            $productlistimagewidth = $baseconfig["productlistimagewidth"];
+            $productlistimageheight = $baseconfig["productlistimageheight"];
+            $productgriddeslenght = $baseconfig["productgriddeslenght"];
+            $productgridimageheight = $baseconfig["productgridimageheight"];
+            $productgridimagewidth = $baseconfig["productgridimagewidth"];
+            $showlabel = $baseconfig["showlabel"];
+        else :
+            $productlistimagewidth = 180;
+            $productlistimageheight = 180;
+            $productgriddeslenght = 0;
+            $productgridimageheight = 180;
+            $productgridimagewidth = 180;
+            $showlabel = 0;
+        endif;
+    $storecode = Mage::app()->getStore()->getCode();
+    $default = Mage::getStoreConfig('design/theme/default',$storecode); 
+    $loadingimage = "skin/frontend/default/".$default."/wavethemes/jmbasetheme/profiles/".Mage::helper("jmbasetheme")->getprofile()."/images/".$baseconfig["loadajax"];
+    
+?>
+
+<?php if(!defined('JM_ADD_SKIN_products')): ?>
+		<script type="text/javascript" src="<?php echo $this->getSkinUrl('joomlart/jmproducts/js/jmproducts.js') ?>"></script>
+	<?php  define('JM_ADD_SKIN_products', true); ?>
+	<?php endif; ?>	
+
+<?php 
+    $detect = Mage::helper ( 'joomlart_jmproducts/mobiledetect' );
+   if($detect->isMobile()) {
+ ?>
+<script type="text/javascript">
+   
+
+    ja = jQuery.noConflict();
+    ja(document).ready(function() {
+    	  ja(".jm-product-list ul.products-grid").jmproduct({
+    	  	   width:<?php echo $config['width']; ?>,
+    	  	   height:<?php echo $config['height']; ?>,
+    	  	   widthportrait:<?php echo $config['widthportrait']; ?>,
+    	  	   heightportrait:<?php echo $config['heightportrait']; ?>,
+    	  	   perrow:<?php echo $config['perrow']; ?>,
+    	  	   perrowportrait:<?php echo $config['perrowportrait']; ?>,
+    	  	   istable:<?php echo $config['istable']; ?>,
+    	  	   ismobile:<?php echo $config['ismobile']; ?>,
+    	  });
+
+
+	});
+</script>
+
+<?php } if($config["ajaxloadmore"]){ ?>
+<script type="text/javascript">
+
+//<![CDATA[
+jQuery(document).ready(function($) {
+     $("ul.products-grid").jminfinite({
+        columns:<?php echo $config['perrow']; ?>,
+    	itemSelector:'li.pitem',
+    	viewmoretext:'<?php echo $this->__("Load More.."); ?>',
+    	loadalltext:'<?php echo $this->__("That\'s all we have for now <i class=\'icon-smile\'></i>"); ?>',
+    	loadingimage:'<?php echo $loadingimage; ?>',
+    	callback:function(obj,newElements){
+            columns = obj.options.columns;
+            container = obj.options.container;
+            itemSelector = obj.options.itemSelector;
+            width = (100/columns).toString() + "%";
+
+            
+    		    $( newElements ).css("width",width);
+			   // update
+			    $('#item-more').appendTo(container).find('h3:first').show(); 	
+				$(container).find(itemSelector).removeClass("first last");
+				$(container).find(itemSelector).each(function(index,item){
+				if(index%columns == 0){
+                      $(item).addClass("first");
+				}else if(index%columns == (columns-1)){
+                      $(item).addClass("last"); 
+				}
+				 $(window).trigger("resize");
+				 $("ul.products-grid").jmquickview({});					
+			});
+    	}
+
+
+    });
+ });
+ //]]>
+</script>
+<?php } ?>
+<div class="jm-product-list <?php echo $config['mode']; ?> clearfix">		
+		<div class="listing-type-grid category-products">
+			<?php $_collectionSize = $listall?$listall->count():0; ?>
+			
+			<?php $i = 0;
+				$width = 100;
+				// -- added by Duchh 15/12/2009
+				$thumbnailw = $config['width'];
+				$thumbnailh = $config['height'];
+				$maxChar 		= $config['max'];
+
+				if ($config['perrow']) $width = 100/$config['perrow'];
+				$width = "style=\"width:{$width}%;\"";    
+        $return = false;                
+			?>							
+			<?php if($_collectionSize){?>
+				<ul class="products-grid">
+				<?php foreach ($listall->getItems() as $_product){ 
+						$_rowCount = ceil($_collectionSize/$config['perrow']);
+						if ($i%$config['perrow']==0) : $j++; endif;
+						$i++;
+						$product = Mage::getModel('catalog/product')->load($_product->getId());
+						$attribute = $product->getResource()->getAttribute('label');
+						if(is_object($attribute)){
+						 
+						    $_options= $attribute->getSource()->getAllOptions(true, true);
+							foreach($_options as $option){
+								  if ($option['value'] == $product->getData("label")){
+									$class =  $option['label'];
+								  }
+							 }		   
+							 $attdefaultvalue = $attribute->getDefaultValue();
+							 $attributeValue = Mage::getModel('catalog/product')->load($_product->getId())->getlabel();
+							 $attributeValueName = Mage::getModel('catalog/product')->load($_product->getId())->getAttributeText('label');
+								 if(strlen($attributeValue) &&  ($attdefaultvalue !== $attributeValue)) { 
+									 $labeltype = $class;   
+									 $labelname = $attributeValueName;     
+									 } 
+									 else {
+									 $labeltype = "";
+							 } 
+						}
+				?> 
+						<li class="item <?php if ($j==$_rowCount) : echo "item-row-last"; endif; ?> <?php if(($i-1)%$config['perrow']==0): ?> first<?php elseif($i%$config['perrow']==0): ?> last<?php endif; ?> pitem" <?php echo $width;?>>
+							<div class="inner">
+								<p class="product-image">
+									<a title="<?php echo $this->htmlEscape($_product->getName()) ?>" href="<?php echo $_product->getProductUrl() ?>">
+										<img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($thumbnailw, $thumbnailh)->setWatermarkSize('30x10'); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>"/>
+									</a>
+									<?php if ($labeltype && $showlabel): ?>
+											<span class="<?php echo $labeltype; ?>-label label"><?php echo $labelname;	?></span>		
+										<?php endif; ?>
+								</p>
+								<div class="product-information">
+									<h5>
+										<a title="<?php echo $this->htmlEscape($_product->getName()) ?>" href="<?php echo $_product->getProductUrl() ?>">										
+										<?php 
+											if (strlen($_product->getName()) > 30) :
+												echo strip_tags(substr($_product->getName(), 0, 20)).'...';
+											else : 
+												echo $_product->getName();
+											endif;
+										?>
+										</a>
+									</h5>
+									
+									<?php echo $this->getPriceHtml($_product,true, '_jmproduct_' . rand()) ?>
+									
+									<?php // echo $this->getReviewsSummaryHtml($_product, true, true)?>
+									<?php
+									if ($maxChar) :
+										$productDesc = $product->getDescription();
+										$productShortDesc = $product->getShortDescription();
+									?>
+										<div class="pdescription"><?php echo substr(nl2br(strlen($productDesc) > 10 ? $productDesc : $productShortDesc), 0, $maxChar) . '...'; ?></div>
+									<?php endif; ?>
+									
+										<?php if($_product->isSaleable()){ ?>
+										<button class="form-button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+											<span><?php echo $this->helper("catalog")->__('Add to Cart') ?></span>
+										</button>
+										<?php } else { ?>
+										<div class="out-of-stock"><?php echo $this->helper("catalog")->__('Out of stock') ?></div>
+										<?php } ?>
+									
+										<ul class="add-to-links">
+										<?php if ($this->helper('wishlist')->isAllow()) : ?>
+										<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist">
+											<?php echo $this->__('Wishlist') ?>
+										</a></li>
+										<?php endif;  ?>
+										<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+										<li>
+											<a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Compare') ?></a></li>
+										<?php endif; ?>
+										</ul>
+										<a class="overlayview" title="<?php echo $this->htmlEscape($_product->getName()) ?>" href="<?php echo $_product->getProductUrl() ?>"></a>
+								 </div>
+							</div>					
+						</li>					
+				<?php }?>		
+				</ul>
+				<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+			<?php }?>
+			<?php if(!$config["ajaxloadmore"]) { ?>
+			<a href="<?php echo Mage::getBaseUrl()."jmproducts/viewall/index/type/".$config['mode']; ?>" class="view-all-products"><span>Load More</span></a>
+			<?php } ?>			
+		</div>
+</div>

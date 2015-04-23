@@ -1,0 +1,9 @@
+"The profile name was existed.","Profile "%s" already exists. Please enter another profile name."
+"Please enter the profile name.","Please enter the profile name."
+"Please select the profile name.","Please select one profile."
+"Sorry, the profile was used by another store.","Editing %s profile will affect and overwrite the profile settings in other store view(s) used it as well. Are you sure you want to continue?"
+"Do you want to clone this profile?","Do you want to clone this profile?"
+"Are you sure you want to delete this profile?","Are you sure you want to delete this profile?"
+
+
+

@@ -1,0 +1,32 @@
+/*style for all IE*/
+.ie8 ul#poll-answers li span.label label,
+.ie9 ul#poll-answers li span.label label,
+.ie10 ul#poll-answers li span.label label {
+	width: 90%;
+}
+
+.limiter{
+    width: 170px\0/;
+}
+
+.sort-by{
+    width: 170px\0/;
+}
+
+.select-box{
+/*    padding-left: 10px\0/;*/
+}
+
+.limiter .select-box select {
+    background: #8F95A3\0/;
+    width: 100%\0/;
+}
+
+.select-box select {
+    background: #8F95A3\0/;
+    width: 100%\0/;
+}
+
+.select-box select option{
+    color: #fff\0/;
+}

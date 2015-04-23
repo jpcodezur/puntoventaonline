@@ -1,0 +1,376 @@
+/*
+ * ------------------------------------------------------------------------
+ * JM Crafts Theme for Magento 1.8
+ * ------------------------------------------------------------------------
+ * Copyright (C) 2004-2011 J.O.O.M Solutions Co., Ltd. All Rights Reserved.
+ * @license - Copyrighted Commercial Software
+ * Author: J.O.O.M Solutions Co., Ltd
+ * Websites:  http://www.joomlart.com -  http://www.joomlancers.com
+ * This file may not be redistributed in whole or significant part.
+ * ------------------------------------------------------------------------
+*/
+
+/* MAIN CONTAINER
+--------------------------------------------------------- */
+.main {
+	width: 980px; 
+}
+
+#multiship-addresses-table tbody tr.last td,
+.data-table tbody tr.last td{
+	border-bottom: none;
+}
+
+.multiple-checkout .data-table tbody tr.last td{
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#checkout-review-table tfoot tr.first td,
+#checkout-review-table tfoot tr td{
+	 border-bottom: 0 !important;
+}
+
+#checkout-review-table tfoot tr td {
+	 border-right: 0;
+	 vertical-align: middle !important;
+	 border-bottom: 0 !important;
+}
+
+#checkout-review-table tfoot tr td.last {
+	 border-right: 1px solid #E5E5E5 !important;
+	 border-left: 0 !important;
+}
+
+
+#my-orders-table tr.last td,
+#checkout-review-table tfoot tr.last td{
+	border-bottom: 1px solid #E5E5E5 !important;
+}
+
+#ja-quickaccess .block {
+  display: none;
+}
+
+.multiple-checkout .col2-set h2.legend {
+	background: #EDF7FC;
+	border-bottom: 0 !important;
+	font-size: 110%;
+	margin: 0;
+	padding: 5px 15px;
+	float: left;
+	width: 97%;
+}
+.multiple-checkout .col2-set h3.legend {
+	background: #EDF7FC;
+	border-bottom: 1px solid #e5e5e5;
+	border-top: 1px solid #E5E5E5;
+	font-size: 110%;
+	margin: 0;
+	float: left;
+	padding: 5px 15px;
+	width: 97%;
+}
+
+
+.wrap { min-width: 0; }
+
+#ja-wrapper { overflow: hidden; }
+
+/* TABLE */
+.data-table {
+  border-collapse: separate;
+}
+
+.jm-megamenu .childcontent-inner, 
+.jm-megamenu .childcontent-inner-wrap {
+  width: 960px !important;
+}
+
+.jm-megamenu ul.level1 li.mega div.group-title a.mega {
+	font-size: 160%;
+}
+
+.jm-megamenu .products-grid .ratings{
+  display: none;
+}
+
+.jm-megamenu .megacol {
+  width: 25% !important;
+}
+
+/*mass bottom*/
+#ja-mass-bottom .block-subscribe .col-inner {
+  min-height: 213px;
+}
+#ja-mass-bottom .block-welcome .col-inner {
+  min-height: 213px;
+}
+#ja-mass-bottom .block-welcome .read-welcome {
+	position: static;
+	float: right;
+}
+
+#ja-mass-bottom .col-inner img {
+  float: left;
+  height: 253px;
+  width: 100%;
+}
+
+/*botsl*/
+#ja-botsl .col4-set .col-3 {
+  float: left;
+  width: 20%;
+}
+
+#ja-botsl .col4-set .col-4 {
+  float: left;
+  width:30%;
+}
+
+#ja-botsl .block-socials a {
+	margin: 0 10px 0 0;
+}
+
+
+/*Mini search---*/
+#ja-search {
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
+	width: 58px;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+#ja-search .form-search {
+  background: none;
+  float: left;
+  height: 60px;
+  margin: 0;
+  width: 58px;
+}
+
+#ja-search .input-text {
+	width: 0px;
+	padding: 0;
+	margin: 0;
+}
+#ja-search .button {
+  height: 60px;
+  width: 58px;
+}
+
+
+#ja-search:hover{ 
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+	border-left: 1px solid #eee; 
+	border-right: 1px solid #eee; 
+	width: 276px; 
+	min-height: 60px; 
+	position: absolute; 
+	right: 179px; 
+	top: 0; 
+	z-index: 1000; 
+	background: #fff;
+
+}
+
+#ja-search:hover .form-search{ float: left; margin: 14px 14px 0 16px; width: 247px; background: #efefef; height: 33px; border-radius: 5px; }
+
+#ja-search:hover form{ float: right; text-align: right; }
+
+#ja-search:hover legend{ display: none; }
+
+#ja-search:hover .input-text{ border: 0; float: left; margin: 4px; padding: 5px; width: 180px; background: none; font-size: 11px; vertical-align: middle; }
+
+#ja-search:hover .button{ border: 0; float: right; width: 33px; background: url('../images/bg-button-search.png') no-repeat 50% 50%; text-indent: -999em; height: 33px; }
+
+
+.bg-static-1, 
+.bg-static-2  {
+	display: none;
+}
+
+
+.jm-slideshow {
+	width: 100%;
+}
+
+/*product list home*/
+#ja-tops2 .hot-products .inner {
+	min-height: 193px;
+}
+
+.static-top {
+	min-height: 220px;
+}
+.overlayview,
+.jmquickview {
+  display: none !important;
+}
+.catalog-category-view .products-grid li.item .form-button.jmquickview {
+  left: 55px;
+}
+
+.products-grid li.item .form-button.jmquickview {
+  left: 55px;
+  top: 85px;
+}
+.products-list .product-shop h2 {
+  line-height: 135%;
+}
+.products-list .product-shop {
+  width: 295px;
+}
+
+
+/*details*/
+.product-essential .product-shop.col-2 {
+  width: 440px;
+}
+.product-essential .product-options dd select.multiselect {
+	height: 35px;
+	padding: 0 5px;
+}
+
+.product-options dd select {
+	height: 35px;
+}
+.product-img-box.col-1 {
+  width: 510px;
+}
+.product-img-box .product-image-zoom {
+  height: 410px;
+  width: 410px;
+}
+
+ul.ja-tab-navigator li.active,
+ul.ja-tab-navigator li {
+	width: 300px;
+}
+
+.ja-tab-content {
+  width: 60%;
+}
+
+
+/*cart*/
+.cart .shipping .form-list li .input-box select {
+  width: 277px;
+}
+
+.cart .shipping .form-list li .input-box .input-text {
+	width: 255px;
+	-webkit-appearance: none;
+	-o-appearance:none!important;
+}
+
+#coupon_code {
+	-webkit-appearance: none;
+	-o-appearance:none!important;
+}
+
+input.input-text {
+	-webkit-appearance: none;
+	-o-appearance:none!important;
+}
+
+.cart .cart-collaterals .col2-set {
+  width: 66%;
+}
+.cart-collaterals .totals {
+  width: 32%;
+}
+
+
+.cart-collaterals .totals table {
+	padding: 0;
+}
+
+#shopping-cart-totals-table tfoot tr td {
+	padding: 30px 10px !important;
+}
+
+
+/*col left*/
+.static-sidebar img {
+	width: 100%;
+	height: auto;
+}
+ul#poll-answers li span.label label {
+  float: left;
+  padding: 0;
+  width: 80%;
+}
+
+
+#ja-mass-top {
+	margin: 0 10px 0 0;
+}
+.jm-masshead {
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.data-table td, 
+.data-table th {
+  padding: 15px 25px;
+}
+
+
+#review-form  tr.last td {
+	border-bottom: 1px solid #E5E5E5 !important;
+}
+
+#my-orders-table thead tr th,
+#my-orders-table thead tr th.a-right{
+	text-align: center !important;
+}
+
+.sales-order-view #my-orders-table tr.subtotal td.last {
+	padding: 20px 25px !important;
+}
+
+.page-print #my-orders-table tr.subtotal td.last,
+.page-print #my-orders-table.data-table td, 
+.page-print #my-orders-table.data-table th {
+	padding: 10px;
+}
+
+#checkout-progress-wrapper .block-title span {
+  font-size: 75%;
+ }
+ 
+ #button-btt {
+	display: none !important;
+}
+
+.contact-us-form {
+  float: left;
+  width: 38%;
+}
+.contact-info {
+  float: right;
+  width: 62%;
+}
+
+.product-review .product-img-box {
+  float: left;
+  width: 45%;
+}
+.product-review .product-details  {
+	float: left;
+    width: 55%;
+}
+#upsell-product-table.products-grid .product-image img {
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
