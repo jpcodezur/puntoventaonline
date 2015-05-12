@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Jotapey_Pos>
+            <version>0.1.0</version>
+        </Jotapey_Pos>
+    </modules>
+    <global>
+        <resources>
+            <jotapey_pos_setup>
+                <setup>
+                    <module>Jotapey_Pos</module>
+                    <class>Jotapey_Pos_Model_Resource_Setup</class>
+                </setup>
+            </jotapey_pos_setup>
+        </resources>        
+        <helpers>
+            <jotapey_pos>
+                <class>Jotapey_Pos_Helper</class>
+            </jotapey_pos>
+        </helpers>
+        <models>
+            <jotapey_pos>
+                <class>Jotapey_Pos_Model</class>
+            </jotapey_pos>
+        </models>
+        <blocks>
+            <jotapey_pos>
+                <class>Jotapey_Pos_Block</class>
+            </jotapey_pos>
+        </blocks>
+        <events>  
+            <sales_order_save_after>
+                <observers>  
+                    <jotapey_pos>
+                        <type>singleton</type>  
+                        <class>jotapey_pos/observer</class>  
+                        <method>onOrderComplete</method>  
+                    </jotapey_pos>  
+                </observers>  
+            </sales_order_save_after>  
+        </events> 
+    </global>
+</config>

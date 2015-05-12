@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jotapey_Pos>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends />
+        </Jotapey_Pos>
+    </modules>
+</config>
