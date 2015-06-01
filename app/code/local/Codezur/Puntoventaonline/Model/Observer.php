@@ -6,8 +6,7 @@ class Codezur_Puntoventaonline_Pay_Order_Model_Observer {
     }
     
     public function customerLogin(){
-        echo "aaaa";
-        die("asd");
+        
     }
     
     public function onOrderComplete($observer) {
