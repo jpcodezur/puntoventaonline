@@ -56,5 +56,9 @@
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
+    document.getElementById('checkout-step-billing').style.display = 'none';
+    billing.save();
+    document.getElementById('opc-billing').style.display = 'none';
+    document.getElementById('opc-shipping').style.display = 'none';
 //]]>
 </script>
