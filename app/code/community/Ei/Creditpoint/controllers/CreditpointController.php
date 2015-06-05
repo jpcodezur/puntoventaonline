@@ -53,13 +53,13 @@ class Ei_Creditpoint_CreditpointController extends Mage_Core_Controller_Front_Ac
             
         }
         
-        
+        /*
         $response = array();
         
         //here 'creditpointblock' will be key and cart block html as value for that key
         $response['creditpointblock'] = $this->creditpointAjax();
         $this->getResponse()->clearHeaders()->setHeader('Content-type','application/json',true);
-        return $this->getResponse()->setBody(json_encode($response));
+        return $this->getResponse()->setBody(json_encode($response));*/
     }
     
     

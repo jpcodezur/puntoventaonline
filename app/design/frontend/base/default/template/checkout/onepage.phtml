@@ -56,9 +56,52 @@
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
-    document.getElementById('checkout-step-billing').style.display = 'none';
-    billing.save();
+    
+<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()):?>
+    
     document.getElementById('opc-billing').style.display = 'none';
     document.getElementById('opc-shipping').style.display = 'none';
+    document.getElementById('opc-shipping_method').style.display = 'none';
+    document.getElementById('opc-payment').style.display = 'none';
+    document.getElementById('opc-review').style.display = 'none';
+    
+<?php else: ?>
+    
+    jQuery(document).ready(function(){
+        document.getElementById('checkout-step-billing').style.display = 'none';
+        document.getElementById('opc-billing').style.display = 'none';
+        document.getElementById('opc-shipping').style.display = 'none';
+        
+        //document.getElementById('opc-shipping_method').style.display = 'none';
+        //document.getElementById('opc-payment').style.display = 'none';
+        
+        <?php
+        $total = $this->helper('checkout/cart')->getQuote()->getGrandTotal();
+        ?>
+        jQuery.ajax({
+            url:"../../../creditpoint/creditpoint/estimateCreditPoint/",
+            type:"post",
+            data:{
+              estimate_credit:"creditpoint",
+              pointsredeem:<?php echo $total ?>
+            },
+                    success:function(){
+                        billing.save();
+                    }
+          });
+      
+        jQuery("#checkout-shipping-method-load dl dd").css("display","none");
+        jQuery("#checkout-shipping-method-load dl dd:last").css("display","block");
+        //shippingMethod.save();
+        //jQuery("#p_method_checkmo").click();
+        //payment.save();
+        
+        $(document).on("click","#review-buttons-container .btn-checkout",function(){
+           //alert("a"); 
+           //shippingMethod.save();
+           review.save();
+        });
+    })
+<?php endif; ?>
 //]]>
 </script>

@@ -3,18 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Downloadable/Model/Observer.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Paypal/controllers/PayflowController.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Sales/etc/config.xml</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/community/Ei/Creditpoint/etc/config.xml</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Paypal/Model/Express/Checkout.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/local/codezur/puntoventaonline/Model/Observer.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/community/Ei/Creditpoint/Model/Observer.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Adminhtml/Model/System/Config/Source/Order/Status.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/etc/modules/codezur_puntoventaonline.xml</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/lib/Zend/Service/WindowsAzure/Management/Client.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/core/Mage/Paypal/controllers/PayflowadvancedController.php</file>
-            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/local/codezur/puntoventaonline/etc/config.xml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/default/jm_crafts/template/checkout/cart/sidebar.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/lotusbreath/onestepcheckout/braintree/review_js.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/checkout/onepage/shipping_method.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/code/community/Ei/Creditpoint/controllers/CreditpointController.php</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/skin/frontend/base/default/js/opcheckout.js</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/rwd/default/template/persistent/checkout/onepage/login.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/checkout/onepage/review/totals.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/default/default/template/ei/creditpoint/checkout/cart/creditpoint_cart.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/checkout/onepage/review/button.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/checkout/onepage.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/default/default/template/deliverydate/shipping_method/available.phtml</file>
+            <file>file:/C:/xampp/htdocs/puntoventaonline/app/design/frontend/base/default/template/paypal/hss/js.phtml</file>
         </group>
     </open-files>
 </project-private>
