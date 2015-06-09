@@ -211,7 +211,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
              * Check product availability
              */
             if (!$product) {
-                $this->_goBack();
+                
                 return;
             }
 
@@ -236,7 +236,8 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
                     $message = $this->__('%s was added to your shopping cart.', Mage::helper('core')->escapeHtml($product->getName()));
                     $this->_getSession()->addSuccess($message);
                 }
-                $this->_goBack();
+                //$this->_goBack();
+                $this->_redirect('home');
             }
         } catch (Mage_Core_Exception $e) {
             if ($this->_getSession()->getUseNotice(true)) {
@@ -257,7 +258,8 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
         } catch (Exception $e) {
             $this->_getSession()->addException($e, $this->__('Cannot add the item to shopping cart.'));
             Mage::logException($e);
-            $this->_goBack();
+            //$this->_goBack();
+            $this->_redirect('home');
         }
     }
 

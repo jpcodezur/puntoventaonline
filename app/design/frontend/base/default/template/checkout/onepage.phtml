@@ -65,9 +65,30 @@
     document.getElementById('opc-payment').style.display = 'none';
     document.getElementById('opc-review').style.display = 'none';
     
-<?php else: ?>
-    
+<?php elseif($this->puedeComprar()): ?>
+
     jQuery(document).ready(function(){
+        
+        jQuery("#billing\\:region_id option").each(function(){
+            if(jQuery(this).attr("value")==1){
+              jQuery(this).attr("selected",true);
+              jQuery("#shipping\\:region_id").change();
+              return;
+            }
+          });
+        
+        jQuery("#shipping\\:region_id option").each(function(){
+            if(jQuery(this).attr("value")==1){
+              jQuery(this).attr("selected",true);
+              jQuery("#shipping\\:region_id").change();
+              return;
+            }
+          });
+        
+        jQuery("input.required-entry").val("default");
+        
+        
+        
         document.getElementById('checkout-step-billing').style.display = 'none';
         document.getElementById('opc-billing').style.display = 'none';
         document.getElementById('opc-shipping').style.display = 'none';
@@ -78,6 +99,9 @@
         <?php
         $total = $this->helper('checkout/cart')->getQuote()->getGrandTotal();
         ?>
+                
+        <?php if($this->esCredito()): ?>
+        
         jQuery.ajax({
             url:"../../../creditpoint/creditpoint/estimateCreditPoint/",
             type:"post",
@@ -87,8 +111,11 @@
             },
                     success:function(){
                         billing.save();
+                        jQuery("#s_method_freeshipping_freeshipping").click()
                     }
           });
+          
+        <?php endif; ?>
       
         jQuery("#checkout-shipping-method-load dl dd").css("display","none");
         jQuery("#checkout-shipping-method-load dl dd:last").css("display","block");
@@ -102,6 +129,8 @@
            review.save();
         });
     })
+<?php else: ?>
+    <?php echo "alert('No puede comprar creditos y productos simultaneamente'); ";?>
 <?php endif; ?>
 //]]>
 </script>

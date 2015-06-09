@@ -63,4 +63,51 @@ class Mage_Checkout_Block_Onepage extends Mage_Checkout_Block_Onepage_Abstract
     {
         return $this->isCustomerLoggedIn() ? 'billing' : 'login';
     }
+    
+    public function puedeComprar(){
+        
+        $ret = new StdClass();
+        $ret->creditos = false;
+        $ret->producto = false;
+        
+        $cart = Mage::getModel('checkout/cart')->getQuote();
+        foreach ($cart->getAllItems() as $item) {
+            $product = $productName = $item->getProduct();
+            $categoryIds = $product->getCategoryIds();
+            foreach($categoryIds as $categoryId) {
+                $category = Mage::getModel('catalog/category')->load($categoryId);
+                
+                if($category->getName()=="Creditos"){
+                    $ret->creditos = true;
+                }else{
+                    $ret->producto = true;
+                }
+            }
+        }
+        
+        if($ret->creditos && $ret->producto){
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public function esCredito(){
+        $ret = false;
+        
+        $cart = Mage::getModel('checkout/cart')->getQuote();
+        foreach ($cart->getAllItems() as $item) {
+            $product = $productName = $item->getProduct();
+            $categoryIds = $product->getCategoryIds();
+            foreach($categoryIds as $categoryId) {
+                $category = Mage::getModel('catalog/category')->load($categoryId);
+                
+                if($category->getName()=="Creditos"){
+                    $ret = true;
+                }
+            }
+        }
+        
+        return $ret;
+    }
 }
