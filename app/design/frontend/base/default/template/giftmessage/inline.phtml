@@ -82,13 +82,17 @@ if(!window.toogleRequired) {
 if(window.shipping) {
 
 shipping.onSave = function(evt){
-    new Ajax.Updater('onepage-checkout-shipping-method-additional-load', '<?php echo $this->getAdditionalUrl(); ?>', {onSuccess: function() {
+    
+    new Ajax.Updater('onepage-checkout-shipping-method-additional-load', '<?php echo $this->getAdditionalUrl(); ?>', 
+    {onSuccess: function() {
           this.nextStep(evt);
+          
     }.bind(this), evalScripts:true});
 }.bindAsEventListener(shipping);
 
 billing.onSave = function(evt){
     new Ajax.Updater('onepage-checkout-shipping-method-additional-load', '<?php echo $this->getAdditionalUrl(); ?>', {onSuccess: function() {
+        jQuery("body").css("opacity",1);
           this.nextStep(evt);
     }.bind(this), evalScripts:true});
 }.bindAsEventListener(billing);

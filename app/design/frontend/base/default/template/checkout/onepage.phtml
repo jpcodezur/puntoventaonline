@@ -68,6 +68,7 @@
 <?php elseif($this->puedeComprar()): ?>
 
     jQuery(document).ready(function(){
+        jQuery("body").css("opacity",0.2);
         
         jQuery("#billing\\:region_id option").each(function(){
             if(jQuery(this).attr("value")==1){
@@ -101,7 +102,7 @@
         ?>
                 
         <?php if($this->esCredito()): ?>
-        
+        jQuery("#s_method_freeshipping_freeshipping").click();
         jQuery.ajax({
             url:"../../../creditpoint/creditpoint/estimateCreditPoint/",
             type:"post",
@@ -109,13 +110,36 @@
               estimate_credit:"creditpoint",
               pointsredeem:<?php echo $total ?>
             },
-                    success:function(){
-                        billing.save();
-                        jQuery("#s_method_freeshipping_freeshipping").click()
-                    }
+            success:function(){
+                billing.save();
+
+                jQuery("#s_method_freeshipping_freeshipping").click();
+            },
+            error:function(){
+                jQuery("#s_method_freeshipping_freeshipping").click();
+            }
           });
-          
+        <?php else: ?>
+     jQuery.ajax({
+            url:"../../../creditpoint/creditpoint/alcanzanCreditos/",
+            type:"post",
+            data:{pointsredeem:"<?php echo $total ?>"},
+            success:function(data){
+                var obj = JSON.parse(data);
+                if(obj.success){
+                    billing.save();
+                    jQuery("#s_method_freeshipping_freeshipping").click();
+                }else{
+                    jQuery("#ja-current-content").prepend('<a href="<?php echo  Mage::getBaseUrl() ?>creditos.html">Comprar Saldo</a>');
+                    jQuery("#ja-current-content").prepend("<h2 style='color: red; border: 1px solid; padding: 5px;'>Saldo insuficiente</h2>");
+                }            
+            }
+          });
         <?php endif; ?>
+            
+            jQuery("#shipping-method-buttons-container button.validation-passed").mousedown(function(){
+                jQuery("#s_method_freeshipping_freeshipping").click();
+            })
       
         jQuery("#checkout-shipping-method-load dl dd").css("display","none");
         jQuery("#checkout-shipping-method-load dl dd:last").css("display","block");
@@ -130,7 +154,10 @@
         });
     })
 <?php else: ?>
-    <?php echo "alert('No puede comprar creditos y productos simultaneamente'); ";?>
+jQuery("#ja-current-content").prepend('<h3>Vaya al icono del carrito y en el desplegable elimine los items que correspondan.</h3>');
+    jQuery("#ja-current-content").prepend('<h1 style="color:red">No se puede comprar saldo y productos simultaneamente</h1>');
+    jQuery("#checkoutSteps, .page-title h1").hide();
+    jQuery("#checkout-progress-wrapper").hide();
 <?php endif; ?>
 //]]>
 </script>

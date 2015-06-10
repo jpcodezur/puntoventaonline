@@ -22,13 +22,31 @@ class Ei_Creditpoint_CreditpointController extends Mage_Core_Controller_Front_Ac
         $this->renderLayout();
     }
 
+    public function alcanzanCreditosAction(){
+        
+        $ret = new stdClass();
+        $ret->success = true;
+        
+        $precio = Mage::app()->getRequest()->getParam('pointsredeem');
+        
+        $creditos = Mage::getSingleton('customer/session')->getCustomer()->getCreditPoint();
+        
+        if($precio>$creditos){
+            $ret->success = false;
+        }
+        
+        echo json_encode($ret);
+        return json_encode($ret);
+    }
+    
     public function estimateCreditPointAction() {
 
         
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         //$userSelection = $this->getRequest()->getParam('isChecked');
         $code = (string) $this->getRequest()->getParam('estimate_credit');
-        $pointsRedeem = Mage::app()->getRequest()->getParam('pointsredeem');
+        
+        
         $pointsAmount = Mage::helper('creditpoint')->getPrice($pointsRedeem);
         
         //if estimate_credit code set and redeemed points greater than 0
@@ -53,6 +71,8 @@ class Ei_Creditpoint_CreditpointController extends Mage_Core_Controller_Front_Ac
             
         }
         
+        
+        echo "{success:true,mensaje:''}";
         /*
         $response = array();
         
