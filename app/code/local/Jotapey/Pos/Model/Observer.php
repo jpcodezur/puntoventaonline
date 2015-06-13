@@ -64,12 +64,26 @@ class Jotapey_Pos_Model_Observer {
             }
 
             if ($isCredit/* $pointsRedeem && $pointsPrice != NULL */) {
-                $customerCreditPoints += $product->getPrice();
+                
+                /**/
+                $cart = Mage::helper('checkout/cart')->getCart()->getQuote();
+                $theqty = 0;
+                foreach ($cart->getAllItems() as $item) {
+                    $theqty = $item->getQty();
+                }
+                /**/
+                if(!$theqty){
+                    $theqty = 1;
+                }
+                
+                $customerCreditPoints += ($product->getPrice()*$theqty);
 
                 //init our model, set data and save
                 //deduct redeemed credit points from customer account and revise
                 try {
-
+                    if(!$pointsRedeem){
+                        $pointsRedeem = 0;
+                    }
                     $revisedCreditPoints = $customerCreditPoints - $pointsRedeem;
                     $creditModel = Mage::getSingleton('creditpoint/creditpoint')
                             ->setCustomerId($customerId)
